@@ -1,0 +1,25 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.king{
+    
+    .my-row{
+
+        .chronometer{
+            background-color: orange;
+            font-size: 2rem;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .clock{
+            background-color: chartreuse;
+            font-size: 2rem;
+            text-shadow: 2px 2px 5px black;
+        }
+    }
+}
