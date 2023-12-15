@@ -21,3 +21,46 @@ choronometerPage.addEventListener('click', () => {
 
     king.appendChild(chronometer);
 })
+
+
+clockPage.addEventListener('click', () => {
+    king.innerHTML = '';
+
+    const time = new Date();
+    const h = time.getHours();
+    const m = time.getMinutes();
+    const s = time.getSeconds();
+    let hour = h;
+    let minutes = m;
+    let second = s;
+
+    const clock = document.createElement('div');
+    clock.classList.add('container', 'vh-100', 'vw-100', 'd-flex', 'justify-content-center', 'align-items-center');
+
+    setInterval(() => {
+
+        const clockInput = document.getElementById('clock-input');
+
+        const time = new Date();
+        const h = time.getHours();
+        const m = time.getMinutes();
+        const s = time.getSeconds();
+        hour = h < 10 ? '0' + h : h;
+        minutes = m < 10 ? '0' + m : m;
+        second = s < 10 ? '0' + s : s;
+
+        clockInput.value = hour + ':' + minutes + ':' + second;
+
+        console.log(second);
+
+    }, 1000)
+
+    clock.innerHTML = `
+            <div class="row flex-column justify-content-center align-items-center">
+                <div class="col h2 d-flex"><input type="text" class = "border-0" id="clock-input" value="${hour}:${minutes}:${second}"></div>
+            </div>
+            `;
+
+    king.appendChild(clock);
+
+})
