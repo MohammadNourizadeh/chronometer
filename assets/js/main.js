@@ -39,8 +39,6 @@ clockPage.addEventListener('click', () => {
 
     setInterval(() => {
 
-        const clockInput = document.getElementById('clock-input');
-
         const time = new Date();
         const h = time.getHours();
         const m = time.getMinutes();
@@ -49,15 +47,18 @@ clockPage.addEventListener('click', () => {
         minutes = m < 10 ? '0' + m : m;
         second = s < 10 ? '0' + s : s;
 
-        clockInput.value = hour + ':' + minutes + ':' + second;
+        const myHour = document.getElementById('my-hour');
+        const myMinutes = document.getElementById('my-minutes');
+        const mysecond = document.getElementById('my-second');
 
-        console.log(second);
-
+        myHour.innerText = hour;
+        myMinutes.innerText = minutes;
+        mysecond.innerText = second;
     }, 1000)
 
     clock.innerHTML = `
             <div class="row flex-column justify-content-center align-items-center">
-                <div class="col h2 d-flex"><input type="text" class = "border-0" id="clock-input" value="${hour}:${minutes}:${second}"></div>
+                <div class="col h2 d-flex"><p class = "mx-5" id ="my-hour">${hour}</p> : <p class = "mx-5" id ="my-minutes">${minutes}</p> : <p class = "mx-5" id ="my-second">${second}</p></div>
             </div>
             `;
 
