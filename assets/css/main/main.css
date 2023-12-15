@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "digital";
+  src: url("../../fonts/digital-7 (mono italic).ttf");
+}
 * {
   padding: 0px;
   margin: 0px;
@@ -18,6 +22,11 @@
   cursor: pointer;
   font-size: 2.6rem;
   transition: font-size 0.3s ease-in-out;
+}
+
+.digital-font {
+  font-family: "digital";
+  font-size: 10rem;
 }
 
 /*# sourceMappingURL=main.css.map */

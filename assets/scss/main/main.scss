@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'digital';
+    src: url('../../fonts/digital-7\ \(mono\ italic\).ttf');
+}
+
 * {
     padding: 0px;
     margin: 0px;
@@ -25,4 +30,9 @@
             }
         }
     }
+}
+
+.digital-font{
+    font-family: 'digital';
+    font-size: 10rem;
 }

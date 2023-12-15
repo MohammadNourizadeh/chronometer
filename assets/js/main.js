@@ -58,7 +58,7 @@ clockPage.addEventListener('click', () => {
 
     clock.innerHTML = `
             <div class="row flex-column justify-content-center align-items-center">
-                <div class="col h2 d-flex"><p class = "mx-5" id ="my-hour">${hour}</p> : <p class = "mx-5" id ="my-minutes">${minutes}</p> : <p class = "mx-5" id ="my-second">${second}</p></div>
+                <div class="col h2 d-flex"><p class = "mx-5 digital-font" id ="my-hour">${hour}</p> <span class = "digital-font">:</span> <p class = "mx-5 digital-font" id ="my-minutes">${minutes}</p> <span class = "digital-font">:</span> <p class = "mx-5 digital-font" id ="my-second">${second}</p></div>
             </div>
             `;
 
