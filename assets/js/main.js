@@ -25,7 +25,6 @@ choronometerPage.addEventListener('click', () => {
 
 clockPage.addEventListener('click', () => {
     king.innerHTML = '';
-    king.style.background = 'black'
 
     const time = new Date();
     const h = time.getHours();
@@ -59,7 +58,7 @@ clockPage.addEventListener('click', () => {
 
     clock.innerHTML = `
             <div class="row flex-column justify-content-center align-items-center">
-                <div class="col h2 d-flex"><p class = "mx-5 digital-font" id ="my-hour"  style="color: chartreuse;">${hour}</p> <span class = "digital-font"  style="color: chartreuse;">:</span> <p class = "mx-5 digital-font" id ="my-minutes"  style="color: chartreuse;">${minutes}</p> <span class = "digital-font"  style="color: chartreuse;">:</span> <p class = "mx-5 digital-font" id ="my-second"  style="color: chartreuse;">${second}</p></div>
+                <div class="col h2 d-flex"><p class = "mx-5 digital-font" id ="my-hour">${hour}</p> <span class = "digital-font">:</span> <p class = "mx-5 digital-font" id ="my-minutes">${minutes}</p> <span class = "digital-font">:</span> <p class = "mx-5 digital-font" id ="my-second">${second}</p></div>
             </div>
             `;
 
