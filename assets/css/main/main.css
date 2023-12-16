@@ -11,10 +11,10 @@
 }
 
 .king .my-row div {
-  background-color: rgb(0, 102, 255);
-  opacity: 0.6;
+  background-color: rgb(25, 25, 25);
+  opacity: 0.83;
   font-size: 2rem;
-  color: black;
+  color: rgb(255, 255, 255);
   transition: font-size 0.3s ease-in-out;
 }
 .king .my-row div:hover {
@@ -26,7 +26,7 @@
 
 .digital-font {
   font-family: "digital";
-  font-size: 10rem;
+  font-size: 14rem;
 }
 
 /*# sourceMappingURL=main.css.map */
