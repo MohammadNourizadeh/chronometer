@@ -31,12 +31,12 @@ clockPage.addEventListener('click', () => {
     const h = time.getHours();
     const m = time.getMinutes();
     const s = time.getSeconds();
-    let hour = h;
-    let minutes = m;
-    let second = s;
+    let hour = h < 10 ? '0' + h : h;
+    let minutes = m < 10 ? '0' + m : m;
+    let second = s < 10 ? '0' + s : s;;
 
     const clock = document.createElement('div');
-    clock.classList.add('row', 'vh-100', 'vw-100', 'd-flex', 'justify-content-center', 'align-items-center');
+    clock.classList.add('row', 'vh-100', 'vw-100', 'justify-content-center', 'align-items-center');
 
     setInterval(() => {
 
@@ -48,17 +48,13 @@ clockPage.addEventListener('click', () => {
         minutes = m < 10 ? '0' + m : m;
         second = s < 10 ? '0' + s : s;
 
-        const myHour = document.getElementById('my-hour');
-        const myMinutes = document.getElementById('my-minutes');
-        const mysecond = document.getElementById('my-second');
+        const myClock = document.getElementById('my-clock');
 
-        myHour.innerText = hour;
-        myMinutes.innerText = minutes;
-        mysecond.innerText = second;
+        myClock.innerText = hour + ':' + minutes + ':' + second;
     }, 1000)
 
     clock.innerHTML = `
-                <div class="col d-flex"><p class = "mx-5 digital-font" id ="my-hour" style="color: white;">${hour}</p> <span class = "digital-font" style="color: white;">:</span> <p class = "mx-5 digital-font" id ="my-minutes" style="color: white;">${minutes}</p> <span class = "digital-font" style="color: white;">:</span> <p class = "mx-5 digital-font" id ="my-second" style="color: white;">${second}</p></div>
+                <div class = 'col w-100'> <p class=' text-light text-center digital-font w-100' id ='my-clock'>${hour}:${minutes}:${second} </p> </div>
             `;
 
     king.appendChild(clock);
