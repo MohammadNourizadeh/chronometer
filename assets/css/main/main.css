@@ -26,7 +26,15 @@
 
 .digital-font {
   font-family: "digital";
-  font-size: 5rem;
+}
+
+.back-btn {
+  padding: 0.5rem 2rem;
+  transition: padding 0.3s ease-in-out;
+}
+.back-btn:hover {
+  padding: 0.5rem 4rem;
+  transition: padding 0.3s ease-in-out;
 }
 
 /*# sourceMappingURL=main.css.map */

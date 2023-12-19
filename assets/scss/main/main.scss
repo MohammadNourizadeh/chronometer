@@ -22,7 +22,7 @@
             color: rgb(255, 255, 255);
             transition: font-size .3s ease-in-out;
 
-            &:hover{
+            &:hover {
                 opacity: 1;
                 cursor: pointer;
                 font-size: 2.6rem;
@@ -32,7 +32,16 @@
     }
 }
 
-.digital-font{
+.digital-font {
     font-family: 'digital';
-    font-size: 5rem;
+}
+
+.back-btn {
+    padding: .5rem 2rem;
+    transition: padding .3s ease-in-out;
+
+    &:hover {
+        padding: .5rem 4rem;
+        transition: padding .3s ease-in-out;
+    }
 }

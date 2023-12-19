@@ -54,7 +54,10 @@ clockPage.addEventListener('click', () => {
     }, 1000)
 
     clock.innerHTML = `
-                <div class = 'col w-100'> <p class=' text-light text-center digital-font w-100' id ='my-clock'>${hour}:${minutes}:${second} </p> </div>
+                <div class = 'col w-100 h-100 d-flex align-items-center position-relative'> 
+                    <p class='display-1 text-light text-center digital-font w-100' id ='my-clock'>${hour}:${minutes}:${second} </p> 
+                    <button class="btn btn-dark position-absolute top-0 mt-3 back-btn rounded-5" id='back-btn'>back</button>
+                </div>
             `;
 
     king.appendChild(clock);
