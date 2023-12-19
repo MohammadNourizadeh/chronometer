@@ -36,7 +36,7 @@ clockPage.addEventListener('click', () => {
     let second = s;
 
     const clock = document.createElement('div');
-    clock.classList.add('container', 'vh-100', 'vw-100', 'd-flex', 'justify-content-center', 'align-items-center');
+    clock.classList.add('row', 'vh-100', 'vw-100', 'd-flex', 'justify-content-center', 'align-items-center');
 
     setInterval(() => {
 
@@ -58,9 +58,7 @@ clockPage.addEventListener('click', () => {
     }, 1000)
 
     clock.innerHTML = `
-            <div class="row">
                 <div class="col d-flex"><p class = "mx-5 digital-font" id ="my-hour" style="color: white;">${hour}</p> <span class = "digital-font" style="color: white;">:</span> <p class = "mx-5 digital-font" id ="my-minutes" style="color: white;">${minutes}</p> <span class = "digital-font" style="color: white;">:</span> <p class = "mx-5 digital-font" id ="my-second" style="color: white;">${second}</p></div>
-            </div>
             `;
 
     king.appendChild(clock);
