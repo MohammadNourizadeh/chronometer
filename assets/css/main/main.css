@@ -38,6 +38,10 @@
   font-weight: 200;
 }
 
+.chronometer-row .chronometer-div div .numbers p span {
+  font-family: "digital";
+}
+
 .back-btn {
   padding: 0.5rem 2rem;
   transition: padding 0.3s ease-in-out;

@@ -7,18 +7,62 @@ const king = document.getElementById('king');
 choronometerPage.addEventListener('click', () => {
     king.innerHTML = '';
 
-    const second = '00';
-    const minutes = '00';
-    const hour = '00';
-
     const chronometer = document.createElement('div');
-    chronometer.classList.add('row', 'vh-100', 'vw-100', 'flex-column', 'justify-content-center', 'align-items-center');
+    chronometer.classList.add('row', 'vh-100', 'vw-100', 'justify-content-center', 'align-items-center', 'chronometer-row', 'position-relative');
+
+    let s = 0;
+    let m = 0;
+    let h = 0;
+    let sec = s < 10 ? '0' + s : s;
+    let min = m < 10 ? '0' + m : m;
+    let hou = h < 10 ? '0' + h : h;
+
+
+    setInterval(() => {
+        let sumSec = +sec + 1
+        sec = sumSec < 10 ? '0' + sumSec : sumSec;
+
+        const second = document.getElementById('second').innerText = sec;
+    }, 1000)
+    setInterval(() => {
+        min = +min + 1;
+
+        const minutes = document.getElementById('minutes').innerText = min;
+    }, 60000)
 
     chronometer.innerHTML = `
-        <div class="col h2 p-5 text-center d-flex"><p class = "mx-5">${hour}</p> : <p class = "mx-5">${minutes}</p> : <p class = "mx-5">${second}</p></div>
-        <div class="col d-flex justify-content-center h2"></div>
+        <div class="col d-flex flex-column justify-content-center align-items-center chronometer-div">
+            <div class="p-5 rounded-4 bg-light shadow">
+                <div class="numbers">
+                    <p class="mx-5 text-center display-6">
+                        <span>${hou}</span>
+                        <span>:</span>
+                        <span id='minutes'>${min}</span>
+                        <span>:</span>
+                        <span id='second'>${sec}</span>
+                    </p>
+                </div>
+                <div class="d-flex justify-content-center btns">
+                    <button class="btn btn-outline-success mx-2 px-4">start</button>
+                    <button class="btn btn-outline-secondary mx-2 px-4 d-none">reset</button>
+                    <button class="btn btn-outline-danger mx-2 px-4 d-none">stop</button>
+                    <button class="btn btn-outline-success mx-2 px-4 d-none">resume</button>
+                </div>
+            </div>
+        </div>
     `;
 
+    // here i created my back-btn
+    const backBtn = document.createElement('div');
+    backBtn.classList.add('position-absolute', 'top-0', 'mt-3');
+    backBtn.innerHTML = `    <button class="btn btn-dark rounded-5 back-btn">back</button>    `;
+
+    // my back-btn eventlistener
+    backBtn.addEventListener('click', () => {
+        location.reload();
+    })
+
+    chronometer.appendChild(backBtn);
     king.appendChild(chronometer);
 })
 
@@ -45,7 +89,7 @@ clockPage.addEventListener('click', () => {
     let second = s < 10 ? '0' + s : s;;
 
     const clock = document.createElement('div');
-    clock.classList.add('row', 'vh-100', 'vw-100', 'justify-content-center', 'align-items-center');
+    clock.classList.add('row', 'vh-100', 'vw-100', 'justify-content-center', 'align-items-center', 'position-relative');
 
     setInterval(() => {
 
@@ -70,7 +114,7 @@ clockPage.addEventListener('click', () => {
     }, 1000)
 
     clock.innerHTML = `
-    <div class = 'col w-100 h-100 d-flex justify-content-center align-items-center position-relative date-container'> 
+    <div class = 'col w-100 h-100 d-flex justify-content-center align-items-center date-container'> 
             <div class = 'd-flex flex-column align-items-center p-5 text-bg-light rounded-4 shadow date-div'>
                 <p class='display-1 text-center digital-font' id ='my-clock'>${hour}:${minutes}:${second}</p> 
                 <span class='week-day' id='my-week-day'>${day}</span>
