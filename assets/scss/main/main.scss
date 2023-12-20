@@ -11,19 +11,20 @@
     font-family: 'Franklin Gothic Medium', sans-serif;
 }
 
+// main page
 .king {
+    background-color: #E8ECF1;
 
     .my-row {
 
         div {
-            background-color: rgb(25, 25, 25);
-            opacity: .83;
+            opacity: .7;
             font-size: 2rem;
-            color: rgb(255, 255, 255);
             transition: font-size .3s ease-in-out;
 
             &:hover {
                 opacity: 1;
+                background-color: #d5d9de;
                 cursor: pointer;
                 font-size: 2.6rem;
                 transition: font-size .3s ease-in-out;
@@ -32,10 +33,34 @@
     }
 }
 
-.digital-font {
-    font-family: 'digital';
+
+
+// clock page
+.king {
+
+    .date-container {
+
+        .date-div {
+
+            p {
+                font-family: 'digital';
+            }
+
+            .week-day {
+                color: rgb(112, 112, 112);
+                font-weight: 600;
+            }
+
+            .year {
+                color: rgb(112, 112, 112);
+                font-weight: 200;
+            }
+        }
+    }
 }
 
+
+// local
 .back-btn {
     padding: .5rem 2rem;
     transition: padding .3s ease-in-out;

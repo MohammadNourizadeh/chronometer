@@ -26,7 +26,6 @@ choronometerPage.addEventListener('click', () => {
 // ...... clock page ......
 clockPage.addEventListener('click', () => {
     king.innerHTML = '';
-    king.style.background = 'rgb(25, 25, 25)'
 
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -70,11 +69,11 @@ clockPage.addEventListener('click', () => {
     }, 1000)
 
     clock.innerHTML = `
-    <div class = 'col w-100 h-100 d-flex justify-content-center align-items-center position-relative'> 
-            <div class = 'd-flex flex-column align-items-center'>
-                <p class='display-1 text-light text-center digital-font' id ='my-clock'>${hour}:${minutes}:${second}</p> 
-                <small class = 'text-light' >${day}, ${month}</small>
-                <small class = 'text-light' >${year}</small>
+    <div class = 'col w-100 h-100 d-flex justify-content-center align-items-center position-relative date-container'> 
+            <div class = 'd-flex flex-column align-items-center p-5 text-bg-light rounded-4 shadow date-div'>
+                <p class='display-1 text-center digital-font' id ='my-clock'>${hour}:${minutes}:${second}</p> 
+                <span class='week-day'>${day}</span>
+                <span class='year'>${month}, ${year}</span>
             </div>
     </div>
         `;
