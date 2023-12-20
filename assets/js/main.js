@@ -53,12 +53,18 @@ clockPage.addEventListener('click', () => {
     setInterval(() => {
 
         const time = new Date();
+        const y = time.getFullYear();
+        const mo = time.getMonth();
+        const d = time.getDay();
         const h = time.getHours();
         const m = time.getMinutes();
         const s = time.getSeconds();
+        year = y;
+        month = months[mo];
+        day = days[d];
         hour = h < 10 ? '0' + h : h;
         minutes = m < 10 ? '0' + m : m;
-        second = s < 10 ? '0' + s : s;
+        second = s < 10 ? '0' + s : s;;
 
         const myClock = document.getElementById('my-clock');
 
@@ -67,12 +73,12 @@ clockPage.addEventListener('click', () => {
 
     console.log(time.getFullYear());
     clock.innerHTML = `
-    <div class = 'col w-100 h-100 d-flex flex-column justify-content-center align-items-center position-relative'> 
-        <p class='display-1 text-light text-center digital-font w-100' id ='my-clock'>${hour}:${minutes}:${second} </p> 
-        <div class = 'd-flex flex-column'>
-            <small class = 'text-light' >${day}, ${month}</small>
-            <small class = 'text-light' >${year}</small>
-        </div>
+    <div class = 'col w-100 h-100 d-flex justify-content-center align-items-center position-relative'> 
+            <div class = 'd-flex flex-column align-items-center'>
+                <p class='display-1 text-light text-center digital-font' id ='my-clock'>${hour}:${minutes}:${second}</p> 
+                <small class = 'text-light' >${day}, ${month}</small>
+                <small class = 'text-light' >${year}</small>
+            </div>
     </div>
         `;
 
