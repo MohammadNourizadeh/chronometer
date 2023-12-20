@@ -30,10 +30,19 @@ clockPage.addEventListener('click', () => {
     king.innerHTML = '';
     king.style.background = 'rgb(25, 25, 25)'
 
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
     const time = new Date();
+    const y = time.getFullYear();
+    const mo = time.getMonth();
+    const d = time.getDay();
     const h = time.getHours();
     const m = time.getMinutes();
     const s = time.getSeconds();
+    let year = y;
+    let month = months[mo];
+    let day = days[d];
     let hour = h < 10 ? '0' + h : h;
     let minutes = m < 10 ? '0' + m : m;
     let second = s < 10 ? '0' + s : s;;
@@ -56,9 +65,14 @@ clockPage.addEventListener('click', () => {
         myClock.innerText = hour + ':' + minutes + ':' + second;
     }, 1000)
 
+    console.log(time.getFullYear());
     clock.innerHTML = `
-    <div class = 'col w-100 h-100 d-flex align-items-center position-relative'> 
+    <div class = 'col w-100 h-100 d-flex flex-column justify-content-center align-items-center position-relative'> 
         <p class='display-1 text-light text-center digital-font w-100' id ='my-clock'>${hour}:${minutes}:${second} </p> 
+        <div class = 'd-flex flex-column'>
+            <small class = 'text-light' >${day}, ${month}</small>
+            <small class = 'text-light' >${year}</small>
+        </div>
     </div>
         `;
 
@@ -68,7 +82,7 @@ clockPage.addEventListener('click', () => {
     backBtn.innerHTML = `    <button class="btn btn-dark rounded-5 back-btn">back</button>    `;
 
     // my back-btn eventlistener
-    backBtn.addEventListener('click' , () => {
+    backBtn.addEventListener('click', () => {
         location.reload();
     })
 
