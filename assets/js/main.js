@@ -56,16 +56,21 @@ clockPage.addEventListener('click', () => {
         myClock.innerText = hour + ':' + minutes + ':' + second;
     }, 1000)
 
-    // here i created my back btn
-    const backBtn = document.createElement('div');
-    backBtn.classList.add('position-absolute', 'top-0', 'mt-3');
-    backBtn.innerHTML = `    <button class="btn btn-dark rounded-5 back-btn">back</button>    `;
-
     clock.innerHTML = `
     <div class = 'col w-100 h-100 d-flex align-items-center position-relative'> 
         <p class='display-1 text-light text-center digital-font w-100' id ='my-clock'>${hour}:${minutes}:${second} </p> 
     </div>
         `;
+
+    // here i created my back-btn
+    const backBtn = document.createElement('div');
+    backBtn.classList.add('position-absolute', 'top-0', 'mt-3');
+    backBtn.innerHTML = `    <button class="btn btn-dark rounded-5 back-btn">back</button>    `;
+
+    // my back-btn eventlistener
+    backBtn.addEventListener('click' , () => {
+        location.reload();
+    })
 
     clock.appendChild(backBtn);
     king.appendChild(clock);
