@@ -12,13 +12,11 @@ choronometerPage.addEventListener('click', () => {
     const hour = '00';
 
     const chronometer = document.createElement('div');
-    chronometer.classList.add('container', 'vh-100', 'vw-100', 'd-flex', 'justify-content-center', 'align-items-center');
+    chronometer.classList.add('row', 'vh-100', 'vw-100', 'flex-column', 'justify-content-center', 'align-items-center');
 
     chronometer.innerHTML = `
-    <div class="row flex-column justify-content-center align-items-center">
         <div class="col h2 p-5 text-center d-flex"><p class = "mx-5">${hour}</p> : <p class = "mx-5">${minutes}</p> : <p class = "mx-5">${second}</p></div>
-        <div class="col d-flex justify-content-center h2"><button class="btn btn-success px-5">start</button></div>
-    </div>
+        <div class="col d-flex justify-content-center h2"></div>
     `;
 
     king.appendChild(chronometer);
@@ -71,7 +69,6 @@ clockPage.addEventListener('click', () => {
         myClock.innerText = hour + ':' + minutes + ':' + second;
     }, 1000)
 
-    console.log(time.getFullYear());
     clock.innerHTML = `
     <div class = 'col w-100 h-100 d-flex justify-content-center align-items-center position-relative'> 
             <div class = 'd-flex flex-column align-items-center'>
