@@ -63,17 +63,18 @@ clockPage.addEventListener('click', () => {
         minutes = m < 10 ? '0' + m : m;
         second = s < 10 ? '0' + s : s;;
 
-        const myClock = document.getElementById('my-clock');
+        const myClock = document.getElementById('my-clock').innerText = hour + ':' + minutes + ':' + second;
+        const myWeekDay = document.getElementById('my-week-day').innerText = day;
+        const myYear = document.getElementById('my-year').innerText = month + ',' + year;
 
-        myClock.innerText = hour + ':' + minutes + ':' + second;
     }, 1000)
 
     clock.innerHTML = `
     <div class = 'col w-100 h-100 d-flex justify-content-center align-items-center position-relative date-container'> 
             <div class = 'd-flex flex-column align-items-center p-5 text-bg-light rounded-4 shadow date-div'>
                 <p class='display-1 text-center digital-font' id ='my-clock'>${hour}:${minutes}:${second}</p> 
-                <span class='week-day'>${day}</span>
-                <span class='year'>${month}, ${year}</span>
+                <span class='week-day' id='my-week-day'>${day}</span>
+                <span class='year' id='my-year'>${month}, ${year}</span>
             </div>
     </div>
         `;
