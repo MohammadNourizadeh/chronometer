@@ -2,6 +2,8 @@ const choronometerPage = document.getElementById('chronometer-col');
 const clockPage = document.getElementById('clock-col');
 const king = document.getElementById('king');
 
+
+// ...... chronometer page ......
 choronometerPage.addEventListener('click', () => {
     king.innerHTML = '';
 
@@ -23,6 +25,7 @@ choronometerPage.addEventListener('click', () => {
 })
 
 
+// ...... clock page ......
 clockPage.addEventListener('click', () => {
     king.innerHTML = '';
     king.style.background = 'rgb(25, 25, 25)'
