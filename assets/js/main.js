@@ -3,6 +3,139 @@ const clockPage = document.getElementById('clock-col');
 const king = document.getElementById('king');
 
 
+
+// ...... functions ........
+
+// chronometer functions
+// variables
+let sec = 0;
+let min = 0;
+let hou = 0;
+let sumSec = 0;
+let sumMin = 0;
+let sumHou = 0;
+let secondChanger;
+let minChanger;
+let houChanger;
+
+const start = () => {
+    const startBtn = document.getElementById('start-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const stopBtn = document.getElementById('stop-btn');
+
+    startBtn.classList.add('d-none');
+    resetBtn.classList.remove('d-none');
+    stopBtn.classList.remove('d-none');
+
+    secondChanger = setInterval(() => {
+        sumSec = +sec + 1
+        if (sumSec === 60) {
+            sec = '00';
+        } else {
+            sec = sumSec < 10 ? '0' + sumSec : sumSec;
+        }
+
+        const second = document.getElementById('second').innerText = sec;
+    }, 1000)
+
+    minChanger = setInterval(() => {
+        if (sumSec === 60) {
+            sumMin = +min + 1;
+        }
+
+        if (sumMin > 59) {
+            min = '00';
+        } else {
+            min = sumMin < 10 ? '0' + sumMin : sumMin;
+        }
+
+        const minutes = document.getElementById('minutes').innerText = min;
+    }, 1000)
+
+    houChanger = setInterval(() => {
+        if (sumMin === 60) {
+            sumHou = +hou + 1;
+        }
+
+        if (sumHou > 59) {
+            hou = '00';
+        } else {
+            hou = sumHou < 10 ? '0' + sumHou : sumHou;
+        }
+
+        const hours = document.getElementById('hours').innerText = hou;
+    }, 1000)
+}
+
+const stop = () => {
+    const stopBtn = document.getElementById('stop-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const resumeBtn = document.getElementById('resume-btn');
+
+    resetBtn.classList.remove('disabled');
+    stopBtn.classList.add('d-none');
+    resumeBtn.classList.remove('d-none');
+
+    clearInterval(secondChanger);
+    clearInterval(minChanger);
+    clearInterval(houChanger);
+}
+
+const reset = () => {
+    const resumeBtn = document.getElementById('resume-btn');
+    const startBtn = document.getElementById('start-btn');
+    const resetBtn = document.getElementById('reset-btn');
+
+    resetBtn.classList.add('d-none', 'disabled');
+    startBtn.classList.remove('d-none');
+    resumeBtn.classList.add('d-none');
+
+    sec = 0;
+    min = 0
+
+    const second = document.getElementById('second').innerText = sec < 10 ? '0' + sec : sec;
+    const minutes = document.getElementById('minutes').innerText = min < 10 ? '0' + min : min;
+    const hours = document.getElementById('hours').innerText = hou < 10 ? '0' + hou : hou;
+}
+
+const resume = () => {
+    const stopBtn = document.getElementById('stop-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const resumeBtn = document.getElementById('resume-btn');
+
+    resetBtn.classList.add('disabled');
+    stopBtn.classList.remove('d-none');
+    resumeBtn.classList.add('d-none');
+
+    secondChanger = setInterval(() => {
+        sumSec = +sec + 1
+        if (sumSec === 60) {
+            sec = '00';
+        } else {
+            sec = sumSec < 10 ? '0' + sumSec : sumSec;
+        }
+
+        const second = document.getElementById('second').innerText = sec;
+    }, 1000)
+
+    minChanger = setInterval(() => {
+        if (sumSec === 60) {
+            sumMin = +min + 1;
+        }
+
+        if (sumMin > 59) {
+            min = '00';
+        } else {
+            min = sumMin < 10 ? '0' + sumMin : sumMin;
+        }
+
+        const minutes = document.getElementById('minutes').innerText = min;
+    }, 1000)
+}
+
+
+
+
 // ...... chronometer page ......
 choronometerPage.addEventListener('click', () => {
     king.innerHTML = '';
@@ -17,25 +150,12 @@ choronometerPage.addEventListener('click', () => {
     let min = m < 10 ? '0' + m : m;
     let hou = h < 10 ? '0' + h : h;
 
-
-    setInterval(() => {
-        let sumSec = +sec + 1
-        sec = sumSec < 10 ? '0' + sumSec : sumSec;
-
-        const second = document.getElementById('second').innerText = sec;
-    }, 1000)
-    setInterval(() => {
-        min = +min + 1;
-
-        const minutes = document.getElementById('minutes').innerText = min;
-    }, 60000)
-
     chronometer.innerHTML = `
         <div class="col d-flex flex-column justify-content-center align-items-center chronometer-div">
             <div class="p-5 rounded-4 bg-light shadow">
                 <div class="numbers">
                     <p class="mx-5 text-center display-6">
-                        <span>${hou}</span>
+                        <span id='hours'>${hou}</span>
                         <span>:</span>
                         <span id='minutes'>${min}</span>
                         <span>:</span>
@@ -43,10 +163,10 @@ choronometerPage.addEventListener('click', () => {
                     </p>
                 </div>
                 <div class="d-flex justify-content-center btns">
-                    <button class="btn btn-outline-success mx-2 px-4">start</button>
-                    <button class="btn btn-outline-secondary mx-2 px-4 d-none">reset</button>
-                    <button class="btn btn-outline-danger mx-2 px-4 d-none">stop</button>
-                    <button class="btn btn-outline-success mx-2 px-4 d-none">resume</button>
+                    <button class="btn btn-outline-success mx-2 px-4" id="start-btn" onclick="start()">start</button>
+                    <button class="btn btn-outline-secondary mx-2 px-4 d-none disabled" id="reset-btn" onclick="reset()">reset</button>
+                    <button class="btn btn-outline-danger mx-2 px-4 d-none" id="stop-btn" onclick="stop()">stop</button>
+                    <button class="btn btn-outline-success mx-2 px-3 d-none" id="resume-btn" onclick="resume()">resume</button>
                 </div>
             </div>
         </div>
@@ -65,6 +185,8 @@ choronometerPage.addEventListener('click', () => {
     chronometer.appendChild(backBtn);
     king.appendChild(chronometer);
 })
+
+
 
 
 // ...... clock page ......
