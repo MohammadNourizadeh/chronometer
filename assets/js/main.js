@@ -2,12 +2,9 @@ const choronometerPage = document.getElementById('chronometer-col');
 const clockPage = document.getElementById('clock-col');
 const king = document.getElementById('king');
 
+// ........... variable ............
 
-
-// ...... functions ........
-
-// chronometer functions
-// variables
+//chronometer variable
 let sec = 0;
 let min = 0;
 let hou = 0;
@@ -18,6 +15,32 @@ let secondChanger;
 let minChanger;
 let houChanger;
 
+
+
+//clock variable
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+let time = new Date();
+let y = time.getFullYear();
+let mo = time.getMonth();
+let d = time.getDay();
+let h = time.getHours();
+let m = time.getMinutes();
+let s = time.getSeconds();
+let year = y;
+let month = months[mo];
+let day = days[d];
+let hour = h < 10 ? '0' + h : h;
+let minutes = m < 10 ? '0' + m : m;
+let second = s < 10 ? '0' + s : s;;
+
+
+
+
+// ............ functions ..............
+
+// chronometer functions
 const start = () => {
     const startBtn = document.getElementById('start-btn');
     const resetBtn = document.getElementById('reset-btn');
@@ -91,11 +114,12 @@ const reset = () => {
     resumeBtn.classList.add('d-none');
 
     sec = 0;
-    min = 0
+    min = 0;
+    hou = 0;
 
-    const second = document.getElementById('second').innerText = sec < 10 ? '0' + sec : sec;
-    const minutes = document.getElementById('minutes').innerText = min < 10 ? '0' + min : min;
-    const hours = document.getElementById('hours').innerText = hou < 10 ? '0' + hou : hou;
+    const second = document.getElementById('second').innerText = '0' + sec;
+    const minutes = document.getElementById('minutes').innerText = '0' + min;
+    const hours = document.getElementById('hours').innerText = '0' + hou;
 }
 
 const resume = () => {
@@ -136,19 +160,19 @@ const resume = () => {
 
 
 
-// ...... chronometer page ......
+// ........... chronometer page ...........
 choronometerPage.addEventListener('click', () => {
     king.innerHTML = '';
 
     const chronometer = document.createElement('div');
     chronometer.classList.add('row', 'vh-100', 'vw-100', 'justify-content-center', 'align-items-center', 'chronometer-row', 'position-relative');
 
-    let s = 0;
-    let m = 0;
-    let h = 0;
-    let sec = s < 10 ? '0' + s : s;
-    let min = m < 10 ? '0' + m : m;
-    let hou = h < 10 ? '0' + h : h;
+    sumSec = 0;
+    sumMin = 0;
+    sumHou = 0;
+    sec = sumSec < 10 ? '0' + sumSec : sumSec;
+    min = sumMin < 10 ? '0' + sumMin : sumMin;
+    hou = sumHou < 10 ? '0' + sumHou : sumHou;
 
     chronometer.innerHTML = `
         <div class="col d-flex flex-column justify-content-center align-items-center chronometer-div">
@@ -189,39 +213,22 @@ choronometerPage.addEventListener('click', () => {
 
 
 
-// ...... clock page ......
+// ............... clock page ...............
 clockPage.addEventListener('click', () => {
     king.innerHTML = '';
-
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-    const time = new Date();
-    const y = time.getFullYear();
-    const mo = time.getMonth();
-    const d = time.getDay();
-    const h = time.getHours();
-    const m = time.getMinutes();
-    const s = time.getSeconds();
-    let year = y;
-    let month = months[mo];
-    let day = days[d];
-    let hour = h < 10 ? '0' + h : h;
-    let minutes = m < 10 ? '0' + m : m;
-    let second = s < 10 ? '0' + s : s;;
 
     const clock = document.createElement('div');
     clock.classList.add('row', 'vh-100', 'vw-100', 'justify-content-center', 'align-items-center', 'position-relative');
 
     setInterval(() => {
 
-        const time = new Date();
-        const y = time.getFullYear();
-        const mo = time.getMonth();
-        const d = time.getDay();
-        const h = time.getHours();
-        const m = time.getMinutes();
-        const s = time.getSeconds();
+        time = new Date();
+        y = time.getFullYear();
+        mo = time.getMonth();
+        d = time.getDay();
+        h = time.getHours();
+        m = time.getMinutes();
+        s = time.getSeconds();
         year = y;
         month = months[mo];
         day = days[d];
